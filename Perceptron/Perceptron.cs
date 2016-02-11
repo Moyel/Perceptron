@@ -13,12 +13,12 @@ namespace Perceptron
     public partial class Perceptron : Form
     {
         /// This is the Container for the Class to be evaluated
-        int[,] claseTemp = new int[6, 6]{    { 0, 0, 0, 0, 0, 0, },
-                                                 { 0, 0, 0, 0, 0, 0, },
-                                                 { 0, 0, 0, 0, 0, 0, },
-                                                 { 0, 0, 0, 0, 0, 0, },
-                                                 { 0, 0, 0, 0, 0, 0, },
-                                                 { 0, 0, 0, 0, 0, 0, }};
+        int[,] claseTemp = new int[6, 6] {{ 0, 0, 0, 0, 0, 0, },
+                                          { 0, 0, 0, 0, 0, 0, },
+                                          { 0, 0, 0, 0, 0, 0, },
+                                          { 0, 0, 0, 0, 0, 0, },
+                                          { 0, 0, 0, 0, 0, 0, },
+                                          { 0, 0, 0, 0, 0, 0, }};
 
         double[] finalWeights = {0,0,0};
 
@@ -28,67 +28,118 @@ namespace Perceptron
 
             /// Inputs for 5 class
             int[,] clas5InputOne = new int[6, 6] {{ 0, 0, 1, 1, 0, 0, },
-                                              { 0, 0, 1, 0, 0, 0, },
-                                              { 0, 0, 0, 1, 0, 0, },
-                                              { 0, 0, 1, 1, 0, 0, },
-                                              { 0, 0, 0, 0, 0, 0, },
-                                              { 0, 0, 0, 0, 0, 0, }};
-
+                                                  { 0, 0, 1, 0, 0, 0, },
+                                                  { 0, 0, 0, 1, 0, 0, },
+                                                  { 0, 0, 1, 1, 0, 0, },
+                                                  { 0, 0, 0, 0, 0, 0, },
+                                                  { 0, 0, 0, 0, 0, 0, }};
+              
             int[,] clas5InputTwo = new int[6, 6] {{ 0, 1, 1, 1, 1, 0, },
-                                              { 0, 1, 0, 0, 0, 0, },
-                                              { 0, 1, 1, 1, 0, 0, },
-                                              { 0, 0, 0, 1, 0, 0, },
-                                              { 0, 0, 0, 1, 0, 0, },
-                                              { 1, 1, 1, 1, 0, 0, }};
+                                                  { 0, 1, 0, 0, 0, 0, },
+                                                  { 0, 1, 1, 1, 0, 0, },
+                                                  { 0, 0, 0, 1, 0, 0, },
+                                                  { 0, 0, 0, 1, 0, 0, },
+                                                  { 1, 1, 1, 1, 0, 0, }};
 
             int[,] clas5InputThree = new int[6, 6] {{ 0, 1, 1, 1, 0, 0, },
-                                                { 0, 1, 0, 0, 0, 0, },
-                                                { 0, 1, 1, 1, 0, 0, },
-                                                { 0, 0, 0, 1, 0, 0, },
-                                                { 0, 0, 0, 1, 0, 0, },
-                                                { 0, 1, 1, 1, 0, 0, }};
-            /// Inputs for 3 class
-            /*int[,] clas3InputOne = new int[6, 6] {{ 0, 1, 1, 1, 1, 0, },
-                                              { 0, 0, 0, 0, 1, 0, },
-                                              { 0, 0, 1, 1, 1, 0, },
-                                              { 0, 0, 0, 0, 1, 0, },
-                                              { 0, 0, 0, 0, 1, 0, },
-                                              { 0, 1, 1, 1, 1, 0, }};
+                                                    { 0, 1, 0, 0, 0, 0, },
+                                                    { 0, 1, 1, 1, 0, 0, },
+                                                    { 0, 0, 0, 1, 0, 0, },
+                                                    { 0, 0, 0, 1, 0, 0, },
+                                                    { 0, 1, 1, 1, 0, 0, }};
+    
+            int[,] clas5InputFour = new int[6, 6] {{ 0, 0, 0, 1, 1, 1, },
+                                                   { 0, 0, 0, 1, 0, 0, },
+                                                   { 0, 0, 0, 1, 1, 0, },
+                                                   { 0, 0, 0, 0, 1, 0, },
+                                                   { 0, 1, 1, 1, 1, 0, },
+                                                   { 0, 0, 0, 0, 0, 0, }};
+             
+            int[,] clas5InputFive = new int[6, 6] {{ 1, 1, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, },
+                                                   { 1, 1, 1, 1, 0, 0, },
+                                                   { 0, 0, 0, 1, 0, 0, },
+                                                   { 1, 1, 1, 1, 0, 0, },
+                                                   { 0, 0, 0, 0, 0, 0, }};
 
-            int[,] clas3InputTwo = new int[6, 6] {{ 0, 1, 1, 0, 0, 0, },
-                                              { 0, 0, 0, 1, 0, 0, },
-                                              { 0, 0, 1, 0, 0, 0, },
-                                              { 0, 0, 0, 1, 0, 0, },
-                                              { 0, 0, 0, 1, 0, 0, },
-                                              { 0, 1, 1, 0, 0, 0, }};
+            int[,] clas5InputSix = new int[6, 6] {{ 1, 1, 1, 1, 1, 1, },
+                                                  { 1, 0, 0, 0, 0, 0, },
+                                                  { 1, 1, 1, 1, 1, 1, },
+                                                  { 0, 0, 0, 0, 0, 1, },
+                                                  { 0, 0, 0, 0, 0, 1, },
+                                                  { 1, 1, 1, 1, 1, 1, }};
 
-            int[,] clas3InputThree = new int[6, 6] {{ 0, 1, 1, 1, 0, 0, },
-                                                { 0, 0, 0, 1, 0, 0, },
-                                                { 0, 0, 1, 1, 0, 0, },
-                                                { 0, 0, 0, 1, 0, 0, },
-                                                { 0, 1, 1, 1, 0, 0, },
-                                                { 0, 0, 0, 0, 0, 0, }};*/
+            int[,] clas5InputSeven = new int[6, 6] {{ 0, 0, 1, 1, 0, 0, },
+                                                    { 0, 1, 0, 0, 0, 0, },
+                                                    { 0, 1, 1, 0, 0, 0, },
+                                                    { 0, 0, 1, 0, 0, 0, },
+                                                    { 1, 1, 0, 0, 0, 0, },
+                                                    { 0, 0, 0, 0, 0, 0, }};
 
-            int[,] clas3InputOne = new int[6, 6] {{ 0, 0, 0, 1, 0, 0, },
+            int[,] clas5InputEight = new int[6, 6]{ { 0, 0, 0, 0, 0, 0, },
+                                                    { 0, 1, 0, 1, 1, 1, },
+                                                    { 0, 1, 0, 1, 0, 1, },
+                                                    { 0, 1, 0, 1, 0, 1, },
+                                                    { 0, 1, 1, 1, 0, 1, },
+                                                    { 0, 0, 0, 0, 0, 0, }};
+
+            /// Inputs for 1 class
+            int[,] clas1InputOne = new int[6, 6] {{ 0, 0, 0, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, }};
 
-            int[,] clas3InputTwo = new int[6, 6] {{ 0, 0, 1, 1, 0, 0, },
+            int[,] clas1InputTwo = new int[6, 6] {{ 0, 0, 1, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, },
                                                   { 0, 0, 0, 1, 0, 0, }};
 
-            int[,] clas3InputThree = new int[6, 6] {{ 0, 0, 1, 1, 0, 0, },
+            int[,] clas1InputThree = new int[6, 6] {{ 0, 0, 1, 1, 0, 0, },
                                                     { 0, 0, 0, 1, 0, 0, },
                                                     { 0, 0, 0, 1, 0, 0, },
                                                     { 0, 0, 0, 1, 0, 0, },
                                                     { 0, 0, 0, 1, 0, 0, },
                                                     { 0, 0, 1, 1, 1, 0, }};
+
+            int[,] clas1InputFour = new int[6, 6] {{ 1, 0, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, }};
+
+            int[,] clas1InputFive = new int[6, 6] {{ 0, 0, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, },
+                                                   { 1, 0, 0, 0, 0, 0, },
+                                                   { 0, 0, 0, 0, 0, 0, }};
+
+            int[,] clas1InputSix = new int[6, 6] {{ 0, 0, 0, 0, 0, 0, },
+                                                  { 0, 0, 0, 0, 0, 0, },
+                                                  { 0, 0, 0, 0, 0, 1, },
+                                                  { 0, 0, 0, 0, 0, 1, },
+                                                  { 0, 0, 0, 0, 0, 1, },
+                                                  { 0, 0, 0, 0, 0, 1, }};
+
+            int[,] clas1InputSeven = new int[6, 6] {{ 0, 0, 0, 0, 0, 0, },
+                                                    { 0, 0, 0, 0, 0, 0, },
+                                                    { 0, 0, 0, 0, 0, 0, },
+                                                    { 0, 0, 0, 0, 0, 0, },
+                                                    { 0, 0, 0, 0, 1, 0, },
+                                                    { 0, 0, 0, 0, 0, 0, }};
+
+            int[,] clas1InputEight = new int[6, 6] {{ 0, 0, 0, 0, 0, 0, },
+                                                    { 0, 0, 0, 0, 0, 0, },
+                                                    { 0, 0, 0, 0, 0, 0, },
+                                                    { 0, 1, 1, 1, 0, 0, },
+                                                    { 0, 0, 0, 0, 0, 0, },
+                                                    { 0, 0, 0, 0, 0, 0, }};
+
 
           
 
@@ -105,11 +156,22 @@ namespace Perceptron
             int[,] input = new int[,] { { jumpsXaxis(clas5InputOne), jumpsYaxis(clas5InputOne) }, 
                                         { jumpsXaxis(clas5InputTwo), jumpsYaxis(clas5InputTwo) }, 
                                         { jumpsXaxis(clas5InputThree), jumpsYaxis(clas5InputThree) }, 
-                                        { jumpsXaxis(clas3InputOne), jumpsYaxis(clas3InputOne) },
-                                        { jumpsXaxis(clas3InputTwo), jumpsYaxis(clas3InputTwo) },
-                                        { jumpsXaxis(clas3InputThree), jumpsYaxis(clas3InputThree) }};
+                                        { jumpsXaxis(clas5InputFour), jumpsYaxis(clas5InputFour) }, 
+                                        { jumpsXaxis(clas5InputFive), jumpsYaxis(clas5InputFive) }, 
+                                        { jumpsXaxis(clas5InputSix), jumpsYaxis(clas5InputSix) }, 
+                                        { jumpsXaxis(clas5InputSeven), jumpsYaxis(clas5InputSeven) },
+                                        { jumpsXaxis(clas5InputEight), jumpsYaxis(clas5InputEight) },
+                                        { jumpsXaxis(clas1InputOne), jumpsYaxis(clas1InputOne) },
+                                        { jumpsXaxis(clas1InputTwo), jumpsYaxis(clas1InputTwo) },
+                                        { jumpsXaxis(clas1InputThree), jumpsYaxis(clas1InputThree) },
+                                        { jumpsXaxis(clas1InputFour), jumpsYaxis(clas1InputFour) },
+                                        { jumpsXaxis(clas1InputFive), jumpsYaxis(clas1InputFive) },
+                                        { jumpsXaxis(clas1InputSix), jumpsYaxis(clas1InputSix) },
+                                        { jumpsXaxis(clas1InputSeven), jumpsYaxis(clas1InputSeven) },
+                                        { jumpsXaxis(clas1InputEight), jumpsYaxis(clas1InputEight) }};
 
-            int[] outputs = { 1, 1, 1, 0, 0, 0 };
+   
+            int[] outputs = { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
 
             //Random r = new Random();
             double randMax = 5;
@@ -128,7 +190,7 @@ namespace Perceptron
             while (totalError > 0.2)
             {
                 totalError = 0;
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 16; i++)
                 {
                     int output = calculateOutput(input[i, 0], input[i, 1], weights);
 
