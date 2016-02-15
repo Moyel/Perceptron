@@ -170,15 +170,26 @@ namespace Perceptron
                                         { jumpsXaxis(clas1InputSeven), jumpsYaxis(clas1InputSeven) },
                                         { jumpsXaxis(clas1InputEight), jumpsYaxis(clas1InputEight) }};
 
+            //Creating Chart for 5 class
+            for (int i = 0; i < 8; i++)
+            {
+                this.chart1.Series["5 Class"].Points.AddXY(input[i, 0], input[i, 1]);
+            }
+
+            //Creating Chart for 1 class
+            for (int i = 8; i < 16; i++)
+            {
+                this.chart1.Series["1 Class"].Points.AddXY(input[i, 0], input[i, 1]);
+            }
    
             int[] outputs = { 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-            //Random r = new Random();
-            double randMax = 5;
-            double randMin = -5;
+            Random r = new Random();
+            double[] weights = { r.NextDouble(), r.NextDouble(), r.NextDouble() };
 
-            //double[] weights = { r.NextDouble(), r.NextDouble(), r.NextDouble() };
-            double[] weights = { GetRandomNumber(randMin, randMax), GetRandomNumber(randMin, randMax), GetRandomNumber(randMin, randMax) };
+            //double randMax = 5;
+            // double randMin = -5;
+            //double[] weights = { GetRandomNumber(randMin, randMax), GetRandomNumber(randMin, randMax), GetRandomNumber(randMin, randMax) };
 
             double learningRate = 0.1;
             textBox5.Text = learningRate.ToString();
@@ -186,6 +197,8 @@ namespace Perceptron
             double totalError = 1;
             int epoch = 0;
 
+            double xMin = -20;
+            double xMax = 20;
 
             while (totalError > 0.2)
             {
@@ -201,12 +214,15 @@ namespace Perceptron
                     weights[2] += learningRate * error * 1;
 
                     totalError += Math.Abs(error);
+
+                    
                 }
                 epoch++;
 
                 // Show epochs in GUI
                 textBox1.Text = epoch.ToString();
 
+        
             }
 
            // Show weights in GUI
@@ -216,7 +232,10 @@ namespace Perceptron
 
             finalWeights[0] = weights[0];
             finalWeights[1] = weights[1];
-            finalWeights[2] = weights[2];
+            finalWeights[2] = weights[2];    
+
+            //this.chart1.Series["Slope"].Points.AddXY(xMin, ((-(weights[1] * xMin) + weights[0]) / weights[2]));
+            //this.chart1.Series["Slope"].Points.AddXY(xMax, ((-(weights[1] * xMax) + weights[0]) / weights[2]));
         }
 
         private static int calculateOutput(double input1, double input2, double[] weights)
