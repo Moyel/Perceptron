@@ -334,6 +334,9 @@ namespace Perceptron
         private void button1_Click(object sender, EventArgs e)
         {
             int[,] input = new int[,] { { jumpsXaxis(claseTemp), jumpsYaxis(claseTemp) } };
+
+            this.chart1.Series["Input"].Points.AddXY(jumpsXaxis(claseTemp), jumpsYaxis(claseTemp));
+
             int output = calculateOutput(input[0, 0], input[0, 1], finalWeights);
 
             if (output == 1)
@@ -905,6 +908,9 @@ namespace Perceptron
 
             //Clear Resilts
             textBox6.Text = "";
+
+            //Clear Result in Chart
+            this.chart1.Series["Input"].Points.Clear();
         }
 
     }
